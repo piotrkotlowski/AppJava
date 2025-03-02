@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplikacja.aplikacjagieldowa.Kontrolery.KontrolerAutorow">
+    <children>
+        <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="1200.0">
+            <menus>
+                <Menu fx:id="menuWybor" mnemonicParsing="false" text="Wybór okna">
+                    <items>
+                        <RadioMenuItem fx:id="czyWaluty" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka kursów walut">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="wyborOkienka" />
+                            </toggleGroup></RadioMenuItem>
+                        <RadioMenuItem fx:id="czyFirmy" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka akcji firm i surowców" toggleGroup="$wyborOkienka" />
+                  <RadioMenuItem fx:id="czySurowce" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka cen surowców" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Autorzy">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Wyświetl informacje o autorach" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <ImageView fitHeight="538.0" fitWidth="575.0" layoutX="313.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@zdjecie.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="97.0" layoutY="75.0" text="Piotr Kotłowski">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="926.0" layoutY="75.0" text="Ludwik Madej">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="117.0" text="Numer albumu: 333147" />
+      <Label layoutX="926.0" layoutY="126.0" text="Numer albumu: 333148" />
+    </children>
+</AnchorPane>

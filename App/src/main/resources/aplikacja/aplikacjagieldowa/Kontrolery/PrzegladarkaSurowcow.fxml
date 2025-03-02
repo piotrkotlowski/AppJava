@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aplikacja.aplikacjagieldowa.Kontrolery.KontrolerSurowcow">
+    <children>
+        <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="1200.0">
+            <menus>
+                <Menu fx:id="menuWybor" mnemonicParsing="false" text="Wybór okna">
+                    <items>
+                        <RadioMenuItem fx:id="czyWaluty" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka kursów walut">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="wyborOkienka" />
+                            </toggleGroup></RadioMenuItem>
+                        <RadioMenuItem fx:id="czyFirmy" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka akcji firm i surowców" toggleGroup="$wyborOkienka" />
+                  <RadioMenuItem fx:id="czySurowce" mnemonicParsing="false" onAction="#zmienOkno" text="Przeglądarka cen surowców" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Autorzy">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#zmienNaAutorow" text="Wyświetl informacje o autorach" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <DatePicker fx:id="dataPoczatkowa" layoutX="51.0" layoutY="313.0" promptText="1971-01-01" />
+        <DatePicker fx:id="dataKoncowa" layoutX="242.0" layoutY="313.0" promptText="2004-08-02" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="56.0" prefHeight="55.0" prefWidth="433.0" text="Wybierz surowiec">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Button fx:id="przyciskWyszukiwania" layoutX="493.0" layoutY="56.0" mnemonicParsing="false" onAction="#akcjaPrzycisku" prefHeight="70.0" prefWidth="318.0" text="Szukaj">
+            <font>
+                <Font name="System Bold" size="38.0" />
+            </font>
+        </Button>
+        <CheckBox fx:id="sprawdzenieCzyDaneAktualne" layoutX="493.0" layoutY="147.0" mnemonicParsing="false" text="Sprawdź aktualną cenę" />
+        <Label alignment="CENTER" layoutX="20.0" layoutY="237.0" prefHeight="28.0" prefWidth="396.0" text="Wybierz przedział czasu:">
+            <font>
+                <Font size="19.0" />
+            </font>
+        </Label>
+        <Label layoutX="109.0" layoutY="278.0" text="Początek">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="307.0" layoutY="278.0" text="Koniec">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <LineChart fx:id="wykres" layoutX="9.0" layoutY="355.0" prefHeight="238.0" prefWidth="1176.0">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <TableView fx:id="tabela" layoutX="830.0" layoutY="38.0" prefHeight="286.0" prefWidth="368.0">
+         <columns>
+            <TableColumn fx:id="kolumnaDat" prefWidth="175.0" text="Data" />
+            <TableColumn fx:id="kolumnaCena" prefWidth="179.20001220703125" text="Cena" />
+         </columns>
+        </TableView>
+      <ChoiceBox fx:id="wyborSurowca" layoutX="34.0" layoutY="156.0" prefHeight="26.0" prefWidth="384.0" />
+      <Label alignment="CENTER" layoutX="155.0" layoutY="111.0" prefHeight="27.0" prefWidth="150.0" text="Surowiec">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="439.0" layoutY="182.0" prefHeight="30.0" prefWidth="164.0" text="Surowiec: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="436.0" layoutY="212.0" prefHeight="30.0" prefWidth="164.0" text="Cena aktualna: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="surowiecEtykietka" layoutX="618.0" layoutY="182.0" prefHeight="30.0" prefWidth="199.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="cenaAktualnaEtykietka" layoutX="618.0" layoutY="212.0" prefHeight="30.0" prefWidth="199.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="457.0" layoutY="252.0" mnemonicParsing="false" onAction="#downloadButtonClicked" prefHeight="28.0" prefWidth="138.0" text="Pobierz dane" />
+    </children>
+</AnchorPane>
